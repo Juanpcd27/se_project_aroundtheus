@@ -2,7 +2,7 @@
   margin-top: 30px;
 }
 
-.gallery__cards {
+.cards__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
@@ -51,4 +51,8 @@
   width: 21px;
   height: 18px;
   border: none;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
 }
