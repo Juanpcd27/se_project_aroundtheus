@@ -46,6 +46,7 @@
   background: transparent url(../images/Edit\ Button.svg) center no-repeat;
   grid-area: button;
   margin-top: 16px;
+  border: none;
 }
 
 .profile__add-button {
@@ -53,4 +54,43 @@
   height: 50px;
   background: transparent url(../images/Add\ Button.svg) center no-repeat;
   margin-left: auto;
+  border: none;
+}
+
+@media screen and (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .profile__title {
+    width: 100%;
+    font-size: 22px;
+    line-height: 28.63px;
+    text-align: center;
+    padding-top: 26.25px;
+  }
+  .profile__add-button {
+    margin: 0;
+    width: 100%;
+  }
+
+  .profile__edit-button {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+  }
 }
