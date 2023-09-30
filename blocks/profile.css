@@ -68,7 +68,6 @@
     justify-content: center;
     width: 100%;
     grid-gap: 0;
-    justify-content: end;
   }
 
   .profile__description {
