@@ -54,6 +54,7 @@
   background: transparent url(../images/Edit\ Button.svg) center no-repeat;
   grid-area: button;
   border: 1px solid #ffffff;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
@@ -66,6 +67,8 @@
   background: transparent url(../images/Add\ Button\ 2.svg) center no-repeat;
   margin-left: auto;
   border: 2px solid #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {
@@ -75,6 +78,8 @@
 @media screen and (max-width: 480px) {
   .profile {
     flex-direction: column;
+    margin-bottom: 36px;
+    padding-bottom: 0;
   }
 
   .profile__info {
@@ -91,7 +96,7 @@
     font-size: 14px;
     line-height: normal;
     margin-top: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 36px;
   }
 
   .profile__title {

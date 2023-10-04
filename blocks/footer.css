@@ -19,8 +19,7 @@
 
 @media screen and (max-width: 480px) {
   .footer__copyright {
-    margin: 36px 10px;
-    color: #545454;
+    margin: 48px 19px 36px;
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-style: normal;

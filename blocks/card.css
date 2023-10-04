@@ -44,6 +44,10 @@
   width: 21px;
   height: 18px;
   border: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .card__like-button:hover {
