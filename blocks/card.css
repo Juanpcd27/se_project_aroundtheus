@@ -23,6 +23,7 @@
   font-style: normal;
   font-weight: 900;
   line-height: normal;
+  max-width: 216px;
 }
 
 .card__description {
@@ -37,16 +38,16 @@
   justify-content: space-between;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .card__like-button {
   background: transparent url(../images/Like\ Inactive.svg) center no-repeat;
   width: 21px;
   height: 18px;
-  border: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  border: 0;
   cursor: pointer;
 }
 
