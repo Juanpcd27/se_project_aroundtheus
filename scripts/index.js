@@ -78,8 +78,8 @@ function handleProfileSubmit(e) {
 /* -----------------------------------------------------------------------------*/
 
 profileEdtBtn.addEventListener("click", function () {
-  profileModalInput.value = profileTitle.textContent;
-  profileModalInputDescription.value = profileDescription.textContent;
+  profileModalInput.value = profileTitle.textContent.trim();
+  profileModalInputDescription.value = profileDescription.textContent.trim();
   profileEditModal.classList.add("modal_opened");
 });
 

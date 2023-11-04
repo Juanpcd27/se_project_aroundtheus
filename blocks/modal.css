@@ -98,7 +98,7 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 550px) {
   .modal__container {
     width: 282px;
     padding: 25px 22px;
@@ -111,12 +111,12 @@
   }
 
   .modal__input {
-    width: 238px;
+    width: 100%;
     font-size: 14px;
   }
 
   .modal__button {
-    width: 238px;
+    width: 100%;
     height: 46px;
     margin-top: 45px;
     font-size: 14px;
