@@ -71,6 +71,36 @@
           </button>
         </form>
       </div>
+      <div class="modal" id="profile-add-modal">
+        <div class="modal__container">
+          <button
+            class="modal__close"
+            type="button"
+            id="modal-close-button"
+          ></button>
+          <h3 class="modal__title">New Place</h3>
+          <form class="modal__form" name="modal" id="add-profile-form">
+            <input
+              type="text"
+              name="title"
+              class="modal__input"
+              placeholder="Title"
+              required
+              id="modal-input-title"
+            />
+            <input
+              type="text"
+              name="link"
+              class="modal__input"
+              placeholder="Image link"
+              required
+              id="modal-input-description"
+            />
+            <button class="modal__button" type="submit" id="save-button-open">
+              Create
+            </button>
+          </form>
+        </div>
     </div>
     <template id="card-template">
       <li class="card">
