@@ -53,7 +53,8 @@ const saveButtonOpen = document.querySelector("#save-button-open");
 const profileModalForm = profileEditModal.querySelector(".modal__form");
 const addProfileModalForm = profileAddModal.querySelector(".modal__form");
 const modalPreviewImage = document.querySelector("#modal-image-preview");
-const modalImgPre = modalPreviewImage.querySelector(".preview__image");
+const modalImagePreviewLink =
+  modalPreviewImage.querySelector(".preview__image");
 const modalPreviewTitle = modalPreviewImage.querySelector(
   ".modal__title-preview"
 );
@@ -62,10 +63,14 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileAddButton = document.querySelector(".profile__add-button");
-
+const buttonPreview = document.querySelector(".button__close-preview");
 /* -----------------------------------------------------------------------------*/
 /*                                  Functions                                   */
 /* -----------------------------------------------------------------------------*/
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -87,6 +92,9 @@ function getCardElement(cardData) {
   });
 
   cardImageEl.addEventListener("click", () => {
+    modalImagePreviewLink.src = cardImageEl.src;
+    modalImagePreviewLink.alt = cardImageEl.alt;
+    modalPreviewTitle.textContent = cardTitleEl.textContent;
     openModal(modalPreviewImage);
   });
 
@@ -99,10 +107,6 @@ function getCardElement(cardData) {
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
-}
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
 }
 
 /* -----------------------------------------------------------------------------*/
@@ -124,13 +128,6 @@ function handleAddProfileButtonSubmit(e) {
   closeModal(profileAddModal);
 }
 
-function handlePreviewImage({ name, link }) {
-  modalImgPre.src = link;
-  modalImgPre.alt = name;
-  modalPreviewTitle.textContent = name;
-  openModal(modalPreviewImage);
-}
-
 /* -----------------------------------------------------------------------------*/
 /*                                  Event Listeners                             */
 /* -----------------------------------------------------------------------------*/
@@ -142,6 +139,8 @@ profileEdtBtn.addEventListener("click", () => {
 });
 
 profileEdtBtn.addEventListener("click", () => openModal(profileEditModal));
+
+buttonPreview.addEventListener("click", () => closeModal(modalPreviewImage));
 
 profileModalCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)

@@ -10,12 +10,7 @@
   height: 282px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-}
-
-.card__image_active {
-  width: 433px;
-  height: 540px;
-  margin: 90px 423px 90px 424px;
+  cursor: pointer;
 }
 
 .card__title {
