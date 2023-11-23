@@ -49,7 +49,7 @@ const profileModalInputTitle = profileAddModal.querySelector(
 );
 const profileModalInputLink =
   profileAddModal.querySelector(".modal__input-link");
-const saveButtonOpen = document.querySelector("#save-button-open");
+const saveButtonOpen = document.querySelector("#save-button-opened");
 const profileModalForm = profileEditModal.querySelector(".modal__form");
 const addProfileModalForm = profileAddModal.querySelector(".modal__form");
 const modalPreviewImage = document.querySelector("#modal-image-preview");
