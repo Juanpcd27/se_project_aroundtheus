@@ -126,7 +126,7 @@
   margin-top: 10px;
 }
 
-.button__modal__close__preview {
+.modal__close-preview {
   background: transparent url(../images/Close\ Icon.svg) no-repeat center;
   position: absolute;
   width: 40px;
@@ -137,7 +137,7 @@
   cursor: pointer;
 }
 
-.button__modal__close__preview:hover {
+.modal__close-preview:hover {
   opacity: 0.6;
 }
 
@@ -182,7 +182,7 @@
     padding-left: 20px;
   }
 
-  .button__modal__close__preview {
+  .modal__close-preview {
     right: 10px;
     width: 30px;
     height: 30px;
