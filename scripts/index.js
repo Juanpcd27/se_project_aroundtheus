@@ -33,10 +33,10 @@ const profileEdtBtn = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edt-modal");
 const profileAddModal = document.querySelector("#profile-add-modal");
 const profileModalCloseButton = profileEditModal.querySelector(
-  "#modal-close-button"
+  "#modal-close-buttonone"
 );
 const addCardModalCloseButton = profileAddModal.querySelector(
-  "#modal-close-button"
+  "#modal-close-buttontwo"
 );
 const profileTitle = document.querySelector("#profile-title");
 const profileDescription = document.querySelector("#profile-description");
