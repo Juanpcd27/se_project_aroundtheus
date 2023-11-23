@@ -53,8 +53,9 @@ const saveButtonOpen = document.querySelector("#save-button-opened");
 const profileModalForm = profileEditModal.querySelector(".modal__form");
 const addProfileModalForm = profileAddModal.querySelector(".modal__form");
 const modalPreviewImage = document.querySelector("#modal-image-preview");
-const modalImagePreviewLink =
-  modalPreviewImage.querySelector(".preview__image");
+const modalImagePreviewLink = modalPreviewImage.querySelector(
+  ".modal__preview-image"
+);
 const modalPreviewTitle = modalPreviewImage.querySelector(
   ".modal__title-preview"
 );
@@ -63,7 +64,7 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileAddButton = document.querySelector(".profile__add-button");
-const buttonPreview = document.querySelector(".button__close-preview");
+const buttonPreview = document.querySelector(".button__modal__close-preview");
 /* -----------------------------------------------------------------------------*/
 /*                                  Functions                                   */
 /* -----------------------------------------------------------------------------*/
