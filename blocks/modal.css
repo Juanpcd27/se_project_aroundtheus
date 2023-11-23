@@ -98,6 +98,26 @@
   opacity: 0.8;
 }
 
+.modal__preview {
+  width: 433px;
+  height: 540px;
+}
+
+.preview__image {
+  width: 433px;
+  height: 540px;
+  cursor: pointer;
+}
+
+.modal__title-preview {
+  color: #fff;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 @media screen and (max-width: 550px) {
   .modal__container {
     width: 282px;

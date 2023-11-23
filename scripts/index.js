@@ -44,11 +44,19 @@ const profileModalInput = document.querySelector("#modal-input-title");
 const profileModalInputDescription = document.querySelector(
   "#modal-input-description"
 );
-const profileModalInputHead = document.querySelector("#modal-input-head");
-const profileModalInputLink = document.querySelector("#modal-input-link");
+const profileModalInputTitle = profileAddModal.querySelector(
+  ".modal__input-title"
+);
+const profileModalInputLink =
+  profileAddModal.querySelector(".modal__input-link");
 const saveButtonOpen = document.querySelector("#save-button-open");
 const profileModalForm = profileEditModal.querySelector(".modal__form");
 const addProfileModalForm = profileAddModal.querySelector(".modal__form");
+const modalPreviewImage = document.querySelector("#modal-image-preview");
+const modalImgPre = modalPreviewImage.querySelector(".preview__image");
+const modalPreviewTitle = modalPreviewImage.querySelector(
+  ".modal__title-preview"
+);
 
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
@@ -67,6 +75,21 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".delete__button");
+
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-button_active");
+  });
+
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImageEl.addEventListener("click", () => {
+    openModal(modalPreviewImage);
+  });
+
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
@@ -95,10 +118,17 @@ function handleProfileSubmit(e) {
 
 function handleAddProfileButtonSubmit(e) {
   e.preventDefault();
-  const name = profileModalInputHead.value;
+  const name = profileModalInputTitle.value;
   const link = profileModalInputLink.value;
-  renderCard((name, link), cardListEl);
+  renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
+}
+
+function handlePreviewImage({ name, link }) {
+  modalImgPre.src = link;
+  modalImgPre.alt = name;
+  modalPreviewTitle.textContent = name;
+  openModal(modalPreviewImage);
 }
 
 /* -----------------------------------------------------------------------------*/

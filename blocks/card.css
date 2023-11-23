@@ -12,6 +12,12 @@
   border-top-left-radius: 10px;
 }
 
+.card__image_active {
+  width: 433px;
+  height: 540px;
+  margin: 90px 423px 90px 424px;
+}
+
 .card__title {
   overflow: hidden;
   white-space: nowrap;
@@ -53,4 +59,22 @@
 
 .card__like-button:hover {
   opacity: 0.5;
+}
+
+.card__like-button_active {
+  background: url(../images/Union.svg);
+}
+
+.delete__button {
+  background: transparent url(../images/Trash-2.svg);
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  margin: 18px 15px 249px 244.7px;
+  border: 0;
+  cursor: pointer;
+}
+
+.delete__button:hover {
+  opacity: 0.6;
 }
