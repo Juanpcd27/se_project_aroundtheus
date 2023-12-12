@@ -53,19 +53,29 @@
           <input
             type="text"
             name="title"
-            class="modal__input"
+            class="modal__input modal__input_type_name modal__input_type_error"
             placeholder="Name"
             required
             id="modal-input-title"
+            minlength="2"
+            maxlength="40"
           />
+          <span class="modal__error" id="modal-input-title-error"
+            >Please fill out this field.</span
+          >
           <input
             type="text"
             name="description"
-            class="modal__input"
+            class="modal__input modal__input_type_description modal__input_type_error"
             placeholder="Description"
             required
             id="modal-input-description"
+            minlength="2"
+            maxlength="200"
           />
+          <span class="modal__error" id="modal-input-description-error"
+            >Please enter a web address.
+          </span>
           <button class="modal__button" type="submit" id="save-button-open">
             Save
           </button>
@@ -88,6 +98,8 @@
             placeholder="Title"
             required
             id="modal-input-head"
+            minlength="1"
+            maxlength="30"
           />
           <input
             type="text"
@@ -129,5 +141,6 @@
       </li>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
