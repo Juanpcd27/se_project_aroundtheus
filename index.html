@@ -53,29 +53,28 @@
           <input
             type="text"
             name="title"
-            class="modal__input modal__input_type_name modal__input_type_error"
+            class="modal__input modal__input_type_name"
             placeholder="Name"
             required
             id="modal-input-title"
             minlength="2"
             maxlength="40"
           />
-          <span class="modal__error" id="modal-input-title-error"
-            >Please fill out this field.</span
+          <span class="modal__error" id="modal-input-title-error">
+            Please fill out this field</span
           >
           <input
             type="text"
             name="description"
-            class="modal__input modal__input_type_description modal__input_type_error"
+            class="modal__input modal__input_type_description"
             placeholder="Description"
             required
             id="modal-input-description"
             minlength="2"
             maxlength="200"
           />
-          <span class="modal__error" id="modal-input-description-error"
-            >Please enter a web address.
-          </span>
+          <span class="modal__error" id="modal-input-description-error"></span>
+
           <button class="modal__button" type="submit" id="save-button-open">
             Save
           </button>
@@ -101,15 +100,24 @@
             minlength="1"
             maxlength="30"
           />
+          <span class="modal__error" id="modal-input-head-error"></span>
+
           <input
-            type="text"
+            type="url"
             name="link"
             class="modal__input modal__input-link"
             placeholder="Image link"
             required
             id="modal-input-link"
           />
-          <button class="modal__button" type="submit" id="save-button-opened">
+          <span class="modal__error" id="modal-input-link-error"></span>
+
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            id="save-button-opened"
+            disabled
+          >
             Create
           </button>
         </form>

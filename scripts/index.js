@@ -71,10 +71,19 @@ const buttonPreview = document.querySelector(".modal__close-preview");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.addEventListener("keydown", closeModalEscape);
+}
+
+function closeModalEscape(e) {
+  if (e.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    closeModal(modalOpened);
+  }
 }
 
 function getCardElement(cardData) {

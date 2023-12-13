@@ -25,6 +25,7 @@
   margin: auto;
   position: relative;
   padding: 36px;
+  width: 430px;
 }
 
 .modal__close {
@@ -72,7 +73,6 @@
   border-left: none;
   border-right: none;
   padding-bottom: 5px;
-  max-width: 358px;
   width: 100%;
   border-bottom-color: rgba(0, 0, 0, 0.2);
 }
@@ -93,10 +93,18 @@
   line-height: normal;
   border: none;
   justify-content: center;
-  width: 358px;
+  width: 100%;
   margin-top: 48px;
   height: 50.15px;
   cursor: pointer;
+}
+
+.modal__button_disabled {
+  background: #f6f6f6;
+  border-radius: 2px;
+  border: 1px solid #000;
+  color: #000;
+  opacity: 0.2;
 }
 
 .modal__button:hover {
@@ -156,6 +164,16 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  opacity: 0;
+}
+
+.modal__error_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__input_type_error {
+  border-bottom-color: #f00;
 }
 
 .modal__input_type_error {
