@@ -61,7 +61,7 @@
 }
 
 .delete__button {
-  background: transparent url(../images/Trash-2.svg);
+  background: transparent url(../images/Trash-2.svg) no-repeat;
   width: 18px;
   height: 19.3px;
   position: absolute;

@@ -166,3 +166,12 @@ addCardModalCloseButton.addEventListener("click", () =>
 );
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal")) {
+      closeModal(modal);
+    }
+  });
+});
