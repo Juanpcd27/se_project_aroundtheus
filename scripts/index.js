@@ -63,7 +63,7 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileAddButton = document.querySelector(".profile__add-button");
-const buttonPreview = document.querySelector(".modal__close-preview");
+const previewModalCloseButton = document.querySelector(".modal__close-preview");
 /* -----------------------------------------------------------------------------*/
 /*                                  Functions                                   */
 /* -----------------------------------------------------------------------------*/
@@ -150,7 +150,9 @@ profileEdtBtn.addEventListener("click", () => {
 
 profileEdtBtn.addEventListener("click", () => openModal(profileEditModal));
 
-buttonPreview.addEventListener("click", () => closeModal(modalPreviewImage));
+previewModalCloseButton.addEventListener("click", () =>
+  closeModal(modalPreviewImage)
+);
 
 profileModalCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
