@@ -69,18 +69,18 @@ const previewModalCloseButton = document.querySelector(".modal__close-preview");
 /* -----------------------------------------------------------------------------*/
 
 function openModal(modal) {
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalEscape);
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalEscape);
 }
 
 function closeModalEscape(e) {
   if (e.key === "Escape") {
-    const modalOpened = document.querySelector(".modal__opened");
+    const modalOpened = document.querySelector(".modal_opened");
     closeModal(modalOpened);
   }
 }
