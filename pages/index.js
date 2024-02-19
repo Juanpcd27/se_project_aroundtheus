@@ -74,7 +74,7 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileAddButton = document.querySelector(".profile__add-button");
-const previewModalCloseButton = document.querySelector(".modal__close-preview");
+const previewModalCloseButton = document.querySelector("#modal__close-preview");
 /* -----------------------------------------------------------------------------*/
 /*                                  Functions                                   */
 /* -----------------------------------------------------------------------------*/
