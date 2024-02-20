@@ -1,6 +1,5 @@
 export default class FormValidator {
   constructor(settings, formElement) {
-    this.formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
@@ -54,8 +53,8 @@ export default class FormValidator {
       this._form.querySelectorAll(this._inputSelector)
     );
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    inputEls.forEach((_inputEl) => {
-      this._inputEl.addEventListener("input", (_e) => {
+    this._inputEls.forEach((_inputEl) => {
+      _inputEl.addEventListener("input", (_e) => {
         checkInputValidity(this._form, this._inputEl, options);
         toggleButtonState(this._inputEls, this._submitButton, options);
       });
@@ -76,12 +75,3 @@ export default class FormValidator {
     this._submitButton.disabled = false;
   }
 }
-
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
