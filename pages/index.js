@@ -192,7 +192,7 @@ modals.forEach((modal) => {
 /*                                  Validation                             */
 /* -----------------------------------------------------------------------------*/
 
-const config = {
+const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -201,8 +201,8 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const addCardFormValidator = new FormValidator(config, "#add-card-form");
-const editCardFormValidator = new FormValidator(config, "#profile-edt-modal");
+const addCardFormValidator = new FormValidator(settings, "#add-card-form");
+const editCardFormValidator = new FormValidator(settings, "#profile-edt-modal");
 
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
