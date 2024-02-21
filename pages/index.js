@@ -101,7 +101,10 @@ function handleImageClick(name, link) {
 
 function createCard() {
   const card = new Card(initialCards, "#card-template", handleImageClick);
+
   const cardElement = card.getView();
+
+  return cardElement;
 }
 
 function renderCard(initialCards, wrapper) {
