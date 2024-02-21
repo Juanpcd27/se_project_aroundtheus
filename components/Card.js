@@ -52,9 +52,9 @@ export default class Card {
 
   getView() {
     this._cardElement = this._getTemplate();
-    this.cardImageEl = this._cardElement.querySelector(".card__image");
-    this.cardTitleEl = this._cardElement.querySelector(".card__title");
-    this.cardImageEl.src = this._link;
+    this._cardImageEl = this._cardElement.querySelector(".card__image");
+    this._cardTitleEl = this._cardElement.querySelector(".card__title");
+    this._cardImageEl.src = this._link;
     this._cardImageEl.alt = this._name;
     this._cardTitleEl.textContent = this._name;
     this._likeButton = this._cardElement.querySelector(".card__like-button");
