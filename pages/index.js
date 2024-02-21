@@ -99,16 +99,13 @@ function handleImageClick(name, link) {
   openModal(modalPreviewImage);
 }
 
-function createCard() {
-  const card = new Card(initialCards, "#card-template", handleImageClick);
-
-  const cardElement = card.getView();
-
-  return cardElement;
+function createCard(cardData) {
+  const cardElement = new Card(cardData, "#card-template", handleImageClick);
+  return cardElement.getView();
 }
 
-function renderCard(initialCards, wrapper) {
-  const cardElement = createCard(initialCards);
+function renderCard(cardData, wrapper) {
+  const cardElement = createCard(cardData);
   wrapper.prepend(cardElement);
 }
 
@@ -185,11 +182,8 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editCardFormElement = profileEditModal.querySelector(".modal__form");
-const addCardFormElement = profileAddModal.querySelector(".modal__form");
-
-const editCardFormValidator = new FormValidator(settings, editCardFormElement);
-const addCardFormValidator = new FormValidator(settings, addCardFormElement);
+const editCardFormValidator = new FormValidator(settings, profileModalForm);
+const addCardFormValidator = new FormValidator(settings, addProfileModalForm);
 
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
