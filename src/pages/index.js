@@ -58,12 +58,15 @@ const UserInformation = new UserInfo({
 });
 
 const modalForm = new PopupWithForm("#profile-edt-modal", (data) => {
-  constants.cardSection.addItem(createCard(data));
+  UserInformation.setUserInfo({
+    name: data.title,
+    description: data.description,
+  });
 });
 modalForm.setEventListeners();
 
 const ModalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
-  UserInfo.setUserInfo(data);
+  CardSection.addItem(createCard(data));
 });
 ModalAddForm.setEventListeners();
 
@@ -111,7 +114,9 @@ constants.profileEdtBtn.addEventListener("click", () => {
   openModal(constants.profileEditModal);
 });
 
-// profileEdtBtn.addEventListener("click", () => openModal(profileEditModal));
+constants.profileEdtBtn.addEventListener("click", () =>
+  openModal(constants.profileEditModal)
+);
 
 constants.previewModalCloseButton.addEventListener("click", () =>
   closeModal(constants.modalPreviewImage)
@@ -121,11 +126,11 @@ constants.profileModalCloseButton.addEventListener("click", () =>
   closeModal(constants.profileEditModal)
 );
 
-constants.profileModalForm.addEventListener("submit", handleProfileSubmit);
-constants.addProfileModalForm.addEventListener(
-  "submit",
-  handleAddProfileButtonSubmit
-);
+//constants.profileModalForm.addEventListener("submit", handleProfileSubmit);
+//constants.addProfileModalForm.addEventListener(
+//"submit",
+//handleAddProfileButtonSubmit
+//);
 
 constants.profileAddButton.addEventListener("click", () =>
   openModal(constants.profileAddModal)
