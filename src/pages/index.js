@@ -59,7 +59,7 @@ const UserInformation = new UserInfo({
 
 const modalForm = new PopupWithForm("#profile-edt-modal", (data) => {
   UserInformation.setUserInfo({
-    name: data.title,
+    name: data.name,
     description: data.description,
   });
 });
