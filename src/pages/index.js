@@ -39,13 +39,17 @@ function handleImageClick(name, link) {
   openModal(constants.modalPreviewImage);
 }
 
-function createCard(cardData) {
-  const cardElement = new Card(cardData, "#card-template", handleImageClick);
+function createCard({ name, link }) {
+  const cardElement = new Card(
+    { name, link },
+    "#card-template",
+    handleImageClick
+  );
   return cardElement.getView();
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = createCard(cardData);
+function renderCard({ name, link }, wrapper) {
+  const cardElement = createCard({ name, link });
   wrapper.prepend(cardElement);
 }
 
