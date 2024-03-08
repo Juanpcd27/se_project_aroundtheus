@@ -39,7 +39,7 @@ export const settings = {
   errorClass: "modal__error_visible",
 };
 
-export const cardSection = ".page__section";
+export const cardSection = document.querySelector(".page__section");
 
 export const profileEdtBtn = document.querySelector("#profile-edit-button");
 export const profileEditModal = document.querySelector("#profile-edt-modal");
