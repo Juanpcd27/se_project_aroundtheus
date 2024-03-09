@@ -7,11 +7,11 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 
-const CardPreview = new PopupWithImage("#modal-image-preview");
-CardPreview.setEventListeners();
+const cardPreview = new PopupWithImage("#modal-image-preview");
+cardPreview.setEventListeners();
 
 function handleImageClick(name, link) {
-  CardPreview.open({ name, link });
+  cardPreview.open({ name, link });
 }
 
 function createCard(cardData) {
@@ -24,13 +24,13 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
-const UserInformation = new UserInfo({
+const userInformation = new UserInfo({
   name: "#profile-title",
   description: "#profile-description",
 });
 
 const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
-  UserInformation.setUserInfo({
+  userInformation.setUserInfo({
     name: data.title,
     description: data.description,
   });
@@ -38,13 +38,13 @@ const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
 editModalForm.setEventListeners();
 constants.profileEdtBtn.addEventListener("click", () => editModalForm.open());
 
-const ModalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
-  CardSection.addItem(createCard(data));
+const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
+  cardSection.addItem(createCard(data));
 });
-ModalAddForm.setEventListeners();
-constants.profileAddButton.addEventListener("click", () => ModalAddForm.open());
+modalAddForm.setEventListeners();
+constants.profileAddButton.addEventListener("click", () => modalAddForm.open());
 
-const CardSection = new Section(
+const cardSection = new Section(
   {
     renderer: (item) => {
       renderCard(item, constants.cardListEl);
@@ -53,7 +53,7 @@ const CardSection = new Section(
   constants.cardListSelector
 );
 
-CardSection.renderItems(constants.initialCards);
+cardSection.renderItems(constants.initialCards);
 
 const editCardFormValidator = new FormValidator(
   constants.settings,
