@@ -36,13 +36,24 @@ const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
   });
 });
 editModalForm.setEventListeners();
-constants.profileEdtBtn.addEventListener("click", () => editModalForm.open());
+constants.profileEdtBtn.addEventListener("click", () => {
+  editCardFormValidator.resetValidation();
+  editModalForm.open();
+});
+
+//userInformation.getUserInfo({
+//name: "#modal-input-title";
+//description: "#modal-input-description";
+//});
 
 const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
   cardSection.addItem(createCard(data));
 });
 modalAddForm.setEventListeners();
-constants.profileAddButton.addEventListener("click", () => modalAddForm.open());
+constants.profileAddButton.addEventListener("click", () => {
+  modalAddForm.open();
+  addCardFormValidator.resetValidation();
+});
 
 const cardSection = new Section(
   {

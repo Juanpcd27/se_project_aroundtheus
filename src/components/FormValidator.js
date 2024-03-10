@@ -68,6 +68,11 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
+  resetValidation() {
+    this._toggleButtonState();
+    console.log(this);
+  }
+
   disableButton() {
     if (this._submitButton) {
       this._submitButton.classList.add(this._inactiveButtonClass);
