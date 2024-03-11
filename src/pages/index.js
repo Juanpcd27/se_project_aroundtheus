@@ -19,11 +19,6 @@ function createCard(cardData) {
   return cardElement.getView();
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = createCard(cardData);
-  wrapper.prepend(cardElement);
-}
-
 const userInformation = new UserInfo({
   name: "#profile-title",
   description: "#profile-description",
@@ -57,7 +52,8 @@ constants.profileAddButton.addEventListener("click", () => {
 const cardSection = new Section(
   {
     renderer: (item) => {
-      renderCard(item, constants.cardListEl);
+      const cardElement = createCard(item);
+      cardSection.addItem(cardElement);
     },
   },
   constants.cardListSelector
