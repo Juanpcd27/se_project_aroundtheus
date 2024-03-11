@@ -38,7 +38,13 @@ const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
 editModalForm.setEventListeners();
 constants.profileEdtBtn.addEventListener("click", () => {
   editCardFormValidator.resetValidation();
-  const userData = userInformation.getUserInfo();
+  const userData = userInformation.getUserInfo({
+    inputEl = document.querySelector("#modal-input-title");
+    inputElDescription = document.querySelector("#modal-input-description");
+    inputEl.value = userData;
+    inputElDescription.value = userData;
+
+  });
   editModalForm.open();
 });
 
