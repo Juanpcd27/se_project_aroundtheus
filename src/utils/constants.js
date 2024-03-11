@@ -54,12 +54,11 @@ export const profileTitle = document.querySelector("#profile-title");
 export const profileDescription = document.querySelector(
   "#profile-description"
 );
-export const profileModalInput = document.querySelector("#modal-input-title");
-export const profileModalInputDescription = document.querySelector(
-  "#modal-input-description"
+export const profileModalInput = document.querySelector(
+  ".modal__input_type_name"
 );
-export const profileModalInputTitle = profileAddModal.querySelector(
-  ".modal__input-title"
+export const profileModalInputDescription = document.querySelector(
+  ".modal__input_type_description"
 );
 export const profileModalInputLink =
   profileAddModal.querySelector(".modal__input-link");
