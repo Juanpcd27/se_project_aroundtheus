@@ -39,16 +39,11 @@ editModalForm.setEventListeners();
 constants.profileEdtBtn.addEventListener("click", () => {
   editCardFormValidator.resetValidation();
   const userData = userInformation.getUserInfo();
-  constants.profileModalInput.value = userData;
-  constants.profileModalInputDescription.value = userData;
+  constants.profileModalInput.value = userData.name;
+  constants.profileModalInputDescription.value = userData.description.trim();
 
   editModalForm.open();
 });
-
-//userInformation.getUserInfo({
-//name: "#modal-input-title";
-//description: "#modal-input-description";
-//});
 
 const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
   cardSection.addItem(createCard(data));
