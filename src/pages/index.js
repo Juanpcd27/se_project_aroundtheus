@@ -6,6 +6,15 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
+import Api from "../components/Api.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "d0764cda-b1ee-4837-a694-3cacde791a83",
+    "Content-Type": "application/json",
+  },
+});
 
 const cardPreview = new PopupWithImage("#modal-image-preview");
 cardPreview.setEventListeners();

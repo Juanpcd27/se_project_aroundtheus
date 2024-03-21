@@ -4,6 +4,8 @@ export default class Card {
     this._link = link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._deleteCard = document.querySelector("#modal-delete-card");
+    this._deleteCardButton = document.querySelector("#delete-card-button");
   }
 
   _getTemplate() {
@@ -18,7 +20,11 @@ export default class Card {
       this._handleLikeIcon();
     });
     this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteCard();
+      this._handleDeleteModal();
+      this._deleteCardButton.addEventListener("click", () => {
+        this._handleDeleteCard();
+        this._deleteCard.remove();
+      });
     });
 
     this._cardImageEl.addEventListener("click", () => {
@@ -33,6 +39,10 @@ export default class Card {
   _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  _handleDeleteModal() {
+    this._deleteCard.classList.add("modal_opened");
   }
 
   getView() {
