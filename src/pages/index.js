@@ -23,7 +23,7 @@ api
     cardSection.renderItems(res);
   })
   .catch((err) => {
-    console.error(`Error! ${err}`);
+    console.error(err);
   });
 
 api
@@ -35,7 +35,7 @@ api
     });
   })
   .catch((err) => {
-    console.error(`Error! ${err}`);
+    console.error(err);
   });
 
 const deleteCardModal = new PopupConfirm(
