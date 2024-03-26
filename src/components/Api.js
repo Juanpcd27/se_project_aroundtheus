@@ -18,6 +18,13 @@ export default class Api {
     }).then(this._checkServerResponse);
   }
 
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+      method: "GET",
+    }).then(this._checkServerResponse);
+  }
+
   createCards({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
@@ -29,13 +36,24 @@ export default class Api {
     }).then(this._checkServerResponse);
   }
 
-  updateProfileInfo({ title, description }) {
+  updateProfileInfo({ name, description }) {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify({
-        name: "Jacques Cousteau",
-        about: "explorer",
+        name: name,
+        about: description,
+      }),
+    }).then(this._checkServerResponse);
+  }
+
+  addNewCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers,
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        link: link,
       }),
     }).then(this._checkServerResponse);
   }

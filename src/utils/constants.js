@@ -82,3 +82,7 @@ export const profileAddButton = document.querySelector(".profile__add-button");
 export const previewModalCloseButton = document.querySelector(
   "#modal__close-preview"
 );
+
+export const deleteButton = document.querySelector(".delete__button");
+
+export const deleteCard = document.querySelector("#modal-delete-card");

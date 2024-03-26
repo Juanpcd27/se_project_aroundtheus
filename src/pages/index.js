@@ -7,6 +7,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import Api from "../components/Api.js";
+import PopupConfirm from "../components/PopupConfirm.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -15,6 +16,48 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+api
+  .getInitialCards()
+  .then((res) => {
+    cardSection.renderItems(res);
+  })
+  .catch((err) => {
+    console.error(`Error! ${err}`);
+  });
+
+api
+  .getUserInfo()
+  .then((res) => {
+    userInformation.setUserInfo({
+      name: res.name,
+      description: res.about,
+    });
+  })
+  .catch((err) => {
+    console.error(`Error! ${err}`);
+  });
+
+const deleteCardModal = new PopupConfirm(
+  "#modal-delete-card",
+  handleDeleteClick
+);
+deleteCardModal.setEventListeners();
+
+function handleDeleteClick(card) {
+  deleteCardModal.open();
+  deleteCardModal.setConfirmCall(() => {
+    api
+      .deleteCard(card.getId())
+      .then(() => {
+        deleteCardModal.close();
+        card._handleDeleteCard();
+      })
+      .catch((err) => {
+        console.error(`Error! ${err}`);
+      });
+  });
+}
 
 const cardPreview = new PopupWithImage("#modal-image-preview");
 cardPreview.setEventListeners();
