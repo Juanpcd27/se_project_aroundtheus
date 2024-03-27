@@ -66,9 +66,10 @@ function handleImageClick(name, link) {
   cardPreview.open({ name, link });
 }
 
-function createCard(cardData) {
+function createCard(cardData, _id) {
   const cardElement = new Card(
     cardData,
+    _id,
     "#card-template",
     handleImageClick,
     handleDeleteClick
