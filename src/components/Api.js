@@ -57,4 +57,33 @@ export default class Api {
       }),
     }).then(this._checkServerResponse);
   }
+
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      headers: this._headers,
+      method: "DELETE",
+    }).then(this._checkServerResponse);
+  }
+
+  likeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      headers: this._headers,
+      method: "PUT",
+    }).then(this._checkServerResponse);
+  }
+
+  removeLikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      headers: this._headers,
+      method: "DELETE",
+    }).then(this._checkServerResponse);
+  }
+
+  updateProfilePicture({ avatar }) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({ avatar }),
+    }).then(this._checkServerResponse);
+  }
 }

@@ -46,16 +46,16 @@ deleteCardModal.setEventListeners();
 
 function handleDeleteClick(card) {
   deleteCardModal.open();
-  deleteCardModal.setConfirmCall(() => {
+  deleteCardModal.setconfirmCall(() => {
     api
       .deleteCard(card.getId())
       .then(() => {
-        deleteCardModal.close();
         card._handleDeleteCard();
       })
       .catch((err) => {
-        console.error(`Error! ${err}`);
+        console.error(err);
       });
+    deleteCardModal.close();
   });
 }
 
@@ -67,13 +67,19 @@ function handleImageClick(name, link) {
 }
 
 function createCard(cardData) {
-  const cardElement = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick
+  );
   return cardElement.getView();
 }
 
 const userInformation = new UserInfo({
   name: "#profile-title",
   description: "#profile-description",
+  avatar: ".profile__image",
 });
 
 const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
@@ -122,5 +128,11 @@ const addCardFormValidator = new FormValidator(
   constants.addProfileModalForm
 );
 
+const avatarValidator = new FormValidator(
+  constants.settings,
+  constants.profileAvatarForm
+);
+
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+avatarValidator.enableValidation();

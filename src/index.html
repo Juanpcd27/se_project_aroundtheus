@@ -139,7 +139,7 @@
     </div>
     <div class="modal" id="modal-delete-card">
       <div class="modal__container modal__delete-card">
-        <h3 class="delete__message">Are you sure?</h3>
+        <h3 class="modal__title">Are you sure?</h3>
         <form class="modal__form" name="modal" id="delete-card-form">
           <button
             class="modal__button modal__button_delete"
@@ -153,6 +153,35 @@
           class="modal__close"
           type="button"
           id="modal-close-buttonthree"
+        ></button>
+      </div>
+    </div>
+    <div class="modal" id="modal-avatar">
+      <div class="modal__container modal__avatar">
+        <h3 class="modal__title">Change profile picture</h3>
+        <form class="modal__form" name="modal" id="avatar-card-form">
+          <input
+            type="url"
+            name="link"
+            class="modal__input modal__input-link"
+            placeholder="Image link"
+            required
+            id="modal-input-link"
+          />
+          <span class="modal__error" id="modal-input-link-error"></span>
+          />
+          <button
+            class="modal__button modal__button_avatar"
+            type="submit"
+            id="button-avatar"
+          >
+            Save
+          </button>
+        </form>
+        <button
+          class="modal__close"
+          type="button"
+          id="modal-close-buttonfour"
         ></button>
       </div>
     </div>
