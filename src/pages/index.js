@@ -32,6 +32,7 @@ api
     userInformation.setUserInfo({
       name: res.name,
       description: res.about,
+      avatar: res.avatar,
     });
   })
   .catch((err) => {
@@ -66,10 +67,9 @@ function handleImageClick(name, link) {
   cardPreview.open({ name, link });
 }
 
-function createCard(cardData, _id) {
+function createCard(cardData) {
   const cardElement = new Card(
     cardData,
-    _id,
     "#card-template",
     handleImageClick,
     handleDeleteClick
@@ -111,14 +111,21 @@ constants.profileAddButton.addEventListener("click", () => {
 const cardSection = new Section(
   {
     renderer: (item) => {
-      const cardElement = createCard(item);
-      cardSection.addItem(cardElement);
+      //const cardElement = createCard(item);
+      api
+        .addNewCard(item)
+        .then((cardElement) => {
+          cardSection.addItem(cardElement);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
   constants.cardListSelector
 );
 
-cardSection.renderItems(constants.initialCards);
+//cardSection.renderItems(constants.initialCards);
 
 const editCardFormValidator = new FormValidator(
   constants.settings,

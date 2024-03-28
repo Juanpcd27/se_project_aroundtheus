@@ -25,17 +25,6 @@ export default class Api {
     }).then(this._checkServerResponse);
   }
 
-  createCards({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-      method: "POST",
-      body: JSON.stringify({
-        name: name,
-        link: link,
-      }),
-    }).then(this._checkServerResponse);
-  }
-
   updateProfileInfo({ name, description }) {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
