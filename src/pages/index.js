@@ -88,9 +88,7 @@ const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
   api
     .updateProfilePicture(data)
     .then((res) => {
-      userInformation.setUserAvatar({
-        link: res.avatar,
-      });
+      userInformation.setUserAvatar(res.avatar);
     })
     .catch((err) => {
       console.error(err);
@@ -122,7 +120,7 @@ constants.profileEdtBtn.addEventListener("click", () => {
 });
 
 const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
-  api.createCards(data).then((res) => {
+  api.addNewCard(data).then((res) => {
     cardSection.addItem(createCard(res));
   });
 });
@@ -142,7 +140,7 @@ const cardSection = new Section(
   constants.cardListSelector
 );
 
-cardSection.renderItems(constants.initialCards);
+//cardSection.renderItems(constants.initialCards);
 
 const editCardFormValidator = new FormValidator(
   constants.settings,
