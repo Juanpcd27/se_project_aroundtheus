@@ -90,3 +90,5 @@ export const previewModalCloseButton = document.querySelector(
 export const deleteButton = document.querySelector(".delete__button");
 
 export const deleteCard = document.querySelector("#modal-delete-card");
+
+export const editButtonAvatar = document.querySelector(".profile__avatar-img");

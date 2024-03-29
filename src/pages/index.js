@@ -8,6 +8,7 @@ import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import Api from "../components/Api.js";
 import PopupConfirm from "../components/PopupConfirm.js";
+import { data } from "autoprefixer";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -83,10 +84,31 @@ const userInformation = new UserInfo({
   avatar: ".profile__image",
 });
 
+const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
+  api
+    .updateProfilePicture(data)
+    .then((res) => {
+      userInformation.setUserInfo({
+        link: res.avatar,
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
+editModalAvatar.setEventListeners();
+constants.editButtonAvatar.addEventListener("click", () => {
+  avatarValidator.enableValidation();
+  editModalAvatar.open();
+});
+
 const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
-  userInformation.setUserInfo({
-    name: data.title,
-    description: data.description,
+  api.updateProfileInfo(data).then((res) => {
+    userInformation.setUserInfo({
+      name: res.name,
+      description: res.about,
+    });
   });
 });
 editModalForm.setEventListeners();
@@ -100,7 +122,9 @@ constants.profileEdtBtn.addEventListener("click", () => {
 });
 
 const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
-  cardSection.addItem(createCard(data));
+  api.createCards(data).then((res) => {
+    cardSection.addItem(createCard(res));
+  });
 });
 modalAddForm.setEventListeners();
 constants.profileAddButton.addEventListener("click", () => {
@@ -111,21 +135,14 @@ constants.profileAddButton.addEventListener("click", () => {
 const cardSection = new Section(
   {
     renderer: (item) => {
-      //const cardElement = createCard(item);
-      api
-        .addNewCard(item)
-        .then((cardElement) => {
-          cardSection.addItem(cardElement);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      const cardElement = createCard(item);
+      cardSection.addItem(cardElement);
     },
   },
   constants.cardListSelector
 );
 
-//cardSection.renderItems(constants.initialCards);
+cardSection.renderItems(constants.initialCards);
 
 const editCardFormValidator = new FormValidator(
   constants.settings,
