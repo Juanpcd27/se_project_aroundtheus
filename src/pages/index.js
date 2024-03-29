@@ -88,7 +88,7 @@ const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
   api
     .updateProfilePicture(data)
     .then((res) => {
-      userInformation.setUserInfo({
+      userInformation.setUserAvatar({
         link: res.avatar,
       });
     })
