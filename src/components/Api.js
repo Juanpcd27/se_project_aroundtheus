@@ -79,11 +79,11 @@ export default class Api {
     }).then(this._checkServerResponse);
   }
 
-  updateProfilePicture({ avatar }) {
+  updateProfilePicture({ link }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
-      body: JSON.stringify({ avatar }),
+      body: JSON.stringify({ avatar: link }),
     }).then(this._checkServerResponse);
   }
 }
