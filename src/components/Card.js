@@ -49,7 +49,7 @@ export default class Card {
   }
 
   handleIsLiked(isLiked) {
-    this._isLiked = isLiked;
+    this._isLiked = !isLiked;
     this.likeShow();
   }
 
