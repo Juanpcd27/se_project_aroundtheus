@@ -73,7 +73,9 @@ function createCard(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleDeleteClick
+    handleDeleteClick,
+    removeLike,
+    likeCard
   );
   return cardElement.getView();
 }
@@ -85,6 +87,7 @@ const userInformation = new UserInfo({
 });
 
 const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
+  editModalAvatar.buttonLoading(true);
   api
     .updateProfilePicture(data)
     .then((res) => {
@@ -92,6 +95,9 @@ const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      editModalAvatar.buttonLoading(false);
     });
 });
 
@@ -102,12 +108,21 @@ constants.editButtonAvatar.addEventListener("click", () => {
 });
 
 const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
-  api.updateProfileInfo(data).then((res) => {
-    userInformation.setUserInfo({
-      name: res.name,
-      description: res.about,
+  editModalForm.buttonLoading(true);
+  api
+    .updateProfileInfo(data)
+    .then((res) => {
+      userInformation.setUserInfo({
+        name: res.name,
+        description: res.about,
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      editModalForm.buttonLoading(false);
     });
-  });
 });
 editModalForm.setEventListeners();
 constants.profileEdtBtn.addEventListener("click", () => {
@@ -120,9 +135,18 @@ constants.profileEdtBtn.addEventListener("click", () => {
 });
 
 const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
-  api.addNewCard(data).then((res) => {
-    cardSection.addItem(createCard(res));
-  });
+  modalAddForm.buttonLoading(true);
+  api
+    .addNewCard(data)
+    .then((res) => {
+      cardSection.addItem(createCard(res));
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      modalAddForm.buttonLoading(false);
+    });
 });
 modalAddForm.setEventListeners();
 constants.profileAddButton.addEventListener("click", () => {
@@ -159,3 +183,25 @@ const avatarValidator = new FormValidator(
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
 avatarValidator.enableValidation();
+
+function likeCard(card) {
+  api
+    .likeCard(card.getId())
+    .then(() => {
+      card.handleIsLiked();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+function removeLike(card) {
+  api
+    .removeLikeCard(card.getId())
+    .then(() => {
+      card.handleIsLiked();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
