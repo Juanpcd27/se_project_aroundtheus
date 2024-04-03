@@ -44,11 +44,7 @@ export default class Card {
     });
   }
 
-  _handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button_active");
-  }
-
-  handleIsLiked(isLiked) {
+  setIsLiked(isLiked) {
     this._isLiked = !isLiked;
     this.likeShow();
   }
@@ -61,7 +57,7 @@ export default class Card {
     }
   }
 
-  _handleDeleteCard() {
+  handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }

@@ -25,7 +25,7 @@ export default class Api {
     }).then(this._checkServerResponse);
   }
 
-  createCards({ name, link }) {
+  createCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: "POST",

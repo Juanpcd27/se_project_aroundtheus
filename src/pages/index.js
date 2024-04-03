@@ -35,6 +35,7 @@ api
       description: res.about,
       avatar: res.avatar,
     });
+    editModalForm.close();
   })
   .catch((err) => {
     console.error(err);
@@ -49,15 +50,19 @@ deleteCardModal.setEventListeners();
 function handleDeleteClick(card) {
   deleteCardModal.open();
   deleteCardModal.setconfirmCall(() => {
+    deleteCardModal.buttonLoading(true);
     api
       .deleteCard(card.getId())
       .then(() => {
-        card._handleDeleteCard();
+        card.handleDeleteCard();
+        deleteCardModal.close();
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        deleteCardModal.buttonLoading(false);
       });
-    deleteCardModal.close();
   });
 }
 
@@ -188,7 +193,7 @@ function likeCard(card) {
   api
     .likeCard(card.getId())
     .then(() => {
-      card.handleIsLiked();
+      card.setIsLiked();
     })
     .catch((err) => {
       console.error(err);
@@ -199,7 +204,7 @@ function removeLike(card) {
   api
     .removeLikeCard(card.getId())
     .then(() => {
-      card.handleIsLiked();
+      card.setIsLiked();
     })
     .catch((err) => {
       console.error(err);
