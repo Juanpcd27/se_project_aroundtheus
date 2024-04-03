@@ -37,7 +37,6 @@ export const settings = {
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
-  avatar: ".profile__image",
 };
 
 export const cardSection = document.querySelector(".page__section");
@@ -67,9 +66,6 @@ export const saveButtonOpen = document.querySelector("#save-button-opened");
 export const profileModalForm = profileEditModal.querySelector(".modal__form");
 export const addProfileModalForm =
   profileAddModal.querySelector(".modal__form");
-export const profileImageAvatar = document.querySelector("#modal-avatar");
-export const profileAvatarForm =
-  profileImageAvatar.querySelector(".modal__form");
 export const modalPreviewImage = document.querySelector("#modal-image-preview");
 export const modalImagePreviewLink = modalPreviewImage.querySelector(
   ".modal__preview-image"
@@ -86,9 +82,3 @@ export const profileAddButton = document.querySelector(".profile__add-button");
 export const previewModalCloseButton = document.querySelector(
   "#modal__close-preview"
 );
-
-export const deleteButton = document.querySelector(".delete__button");
-
-export const deleteCard = document.querySelector("#modal-delete-card");
-
-export const editButtonAvatar = document.querySelector(".profile__avatar-img");

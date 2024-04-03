@@ -176,21 +176,6 @@
   border-bottom: 1px solid red;
 }
 
-.delete__message {
-  color: #000;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  margin: 0;
-  padding-bottom: 35px;
-}
-
-.modal__button_delete {
-  margin: 0;
-}
-
 @media screen and (max-width: 550px) {
   .modal__container {
     width: 282px;
