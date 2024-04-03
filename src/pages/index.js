@@ -33,8 +33,9 @@ api
     userInformation.setUserInfo({
       name: res.name,
       description: res.about,
-      avatar: res.avatar,
     });
+    userInformation.setUserAvatar(res.avatar);
+
     editModalForm.close();
   })
   .catch((err) => {
@@ -49,8 +50,8 @@ deleteCardModal.setEventListeners();
 
 function handleDeleteClick(card) {
   deleteCardModal.open();
-  deleteCardModal.setconfirmCall(() => {
-    deleteCardModal.buttonLoading(true);
+  deleteCardModal.setConfirmCall(() => {
+    deleteCardModal.renderLoading(true);
     api
       .deleteCard(card.getId())
       .then(() => {
@@ -61,7 +62,7 @@ function handleDeleteClick(card) {
         console.error(err);
       })
       .finally(() => {
-        deleteCardModal.buttonLoading(false);
+        deleteCardModal.renderLoading(false);
       });
   });
 }
@@ -92,7 +93,7 @@ const userInformation = new UserInfo({
 });
 
 const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
-  editModalAvatar.buttonLoading(true);
+  editModalAvatar.renderLoading(true);
   api
     .updateProfilePicture(data)
     .then((res) => {
@@ -102,7 +103,7 @@ const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
       console.error(err);
     })
     .finally(() => {
-      editModalAvatar.buttonLoading(false);
+      editModalAvatar.renderLoading(false);
     });
 });
 
@@ -113,7 +114,7 @@ constants.editButtonAvatar.addEventListener("click", () => {
 });
 
 const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
-  editModalForm.buttonLoading(true);
+  editModalForm.renderLoading(true);
   api
     .updateProfileInfo(data)
     .then((res) => {
@@ -126,7 +127,7 @@ const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
       console.error(err);
     })
     .finally(() => {
-      editModalForm.buttonLoading(false);
+      editModalForm.renderLoading(false);
     });
 });
 editModalForm.setEventListeners();
@@ -140,7 +141,7 @@ constants.profileEdtBtn.addEventListener("click", () => {
 });
 
 const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
-  modalAddForm.buttonLoading(true);
+  modalAddForm.renderLoading(true);
   api
     .addNewCard(data)
     .then((res) => {
@@ -150,7 +151,7 @@ const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
       console.error(err);
     })
     .finally(() => {
-      modalAddForm.buttonLoading(false);
+      modalAddForm.renderLoading(false);
     });
 });
 modalAddForm.setEventListeners();

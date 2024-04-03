@@ -23,7 +23,7 @@ export default class PopupWithForm extends Popup {
     return inputsItems;
   }
 
-  buttonLoading(loading) {
+  renderLoading(loading) {
     if (loading) {
       this._submitButton.textContent = "Saving...";
     } else {

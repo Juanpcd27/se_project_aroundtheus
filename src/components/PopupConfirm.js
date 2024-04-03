@@ -16,11 +16,11 @@ export default class PopupConfirm extends Popup {
     super.setEventListeners();
   }
 
-  setconfirmCall(handleFormSubmit) {
+  setConfirmCall(handleFormSubmit) {
     this._handleFormSubmit = handleFormSubmit;
   }
 
-  buttonLoading(loading) {
+  renderLoading(loading) {
     if (loading) {
       this._submitButton.textContent = "Saving...";
     } else {
