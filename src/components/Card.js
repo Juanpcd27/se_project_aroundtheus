@@ -45,7 +45,7 @@ export default class Card {
   }
 
   setIsLiked(isLiked) {
-    this._isLiked = !isLiked;
+    this._isLiked = isLiked;
     this.renderLikes();
   }
 

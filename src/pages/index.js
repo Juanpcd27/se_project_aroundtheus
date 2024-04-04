@@ -35,8 +35,6 @@ api
       description: res.about,
     });
     userInformation.setUserAvatar(res.avatar);
-
-    editModalForm.close();
   })
   .catch((err) => {
     console.error(err);
@@ -98,6 +96,7 @@ const editModalAvatar = new PopupWithForm("#modal-avatar", (data) => {
     .updateProfilePicture(data)
     .then((res) => {
       userInformation.setUserAvatar(res.avatar);
+      editModalAvatar.close();
     })
     .catch((err) => {
       console.error(err);
@@ -122,6 +121,7 @@ const editModalForm = new PopupWithForm("#profile-edt-modal", (data) => {
         name: res.name,
         description: res.about,
       });
+      editModalForm.close();
     })
     .catch((err) => {
       console.error(err);
@@ -146,6 +146,7 @@ const modalAddForm = new PopupWithForm("#profile-add-modal", (data) => {
     .addNewCard(data)
     .then((res) => {
       cardSection.addItem(createCard(res));
+      modalAddForm.close();
     })
     .catch((err) => {
       console.error(err);
