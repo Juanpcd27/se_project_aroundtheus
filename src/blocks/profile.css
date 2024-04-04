@@ -24,6 +24,22 @@
   margin-right: 24px;
 }
 
+.profile__avatar-img {
+  width: 120px;
+  height: 120px;
+  border: none;
+  position: absolute;
+  left: 0px;
+  opacity: 0%;
+  transition: opacity 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.7) url(../images/Avatar.svg) center no-repeat;
+}
+
+.profile__avatar-img:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
+
 .profile__title {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-weight: 500;
