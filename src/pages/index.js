@@ -195,7 +195,7 @@ function likeCard(card) {
   api
     .likeCard(card.getId())
     .then(() => {
-      card.setIsLiked();
+      card.setIsLiked(true);
     })
     .catch((err) => {
       console.error(err);
@@ -206,7 +206,7 @@ function removeLike(card) {
   api
     .removeLikeCard(card.getId())
     .then(() => {
-      card.setIsLiked();
+      card.setIsLiked(false);
     })
     .catch((err) => {
       console.error(err);
