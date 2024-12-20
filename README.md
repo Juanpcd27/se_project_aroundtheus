@@ -1,7 +1,28 @@
 My project is named Around The U.S
 
-It is the first responsive website I've worked on, it can be opened in a variety of screen displays, mobile included.
+* I created a website that allows you to edit your name, and professional title, it's centered around the U.S. National Parks and explorer Jacques Cousteau.
+  
+* The parks will be presented to the user in cards, displaying the desired picture, and title, the user can customize this cards and titles in any picture and name the user wants to.
+  
+* The user will have form validation with disabled buttons if the inputs are not valid.
 
-I used html and css as I've done before in my other projects, but this time I used FIGMA for the first time, I also applied the knowledge from grid on sprint 3 and media queries.
+* The user can click the image on the card to preview the image in a larger size.
 
-My git hub deployment link: https://juanpcd27.github.io/se_project_aroundtheus/
+* The user can like and dislike the cards.
+
+* The user can delete the cards.
+
+* This project is designed in a responsive way, meaning it can be accessed in any resolution.
+
+* The project is deployed with Github Pages and you can find the link for deployment here: https://juanpcd27.github.io/se_project_aroundtheus/
+
+--- Technologies and skills used:
+
+- HTML
+- JavaScript
+- CSS
+- Node.js
+- Git
+- JSON
+- Webpack
+
